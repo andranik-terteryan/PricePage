@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: $dark;
+}
+::-webkit-scrollbar-thumb {
+  background: $green;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $gray;
+}
+body {
+  font-family: "Inter", sans-serif;
+  &.hidden {
+    overflow: hidden;
+  }
+}
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.page {
+  min-height: 100vh;
+  @include flex-column;
+  background: linear-gradient(153.11deg, #36603e 35.82%, #1e262c 107.75%);
+}
+.wrapper {
+  flex: 1 1 auto;
+}
+.container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  &:not(.small) {
+    max-width: 1230px;
+  }
+  &.small {
+    max-width: 1000px;
+  }
+}
+.primary-button {
+  @include buttonNulled;
+  border-radius: 7px;
+  border: 1px solid;
+  @include fontRem(12, 500, 15);
+  color: $white;
+  position: relative;
+  overflow: hidden;
+  transition: .2s;
+  span{
+    position: relative;
+    z-index: 5;
+  }
+  &::after{
+    content: " ";
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba($green,0.8);
+    position: absolute;
+  }
+  &:hover{
+    &::after{
+      transition: 0.2s;
+      width: 100%;
+    }
+  }
+  &.primary-button--red {
+    background: $red;
+    border-color: $lightRed;
+    &:hover{
+      border-color: $white;
+    }
+  }
+  &.primary-button--green {
+    background: $green;
+    border-color: $gray;
+    &::after{
+      background-color: rgba($white,0.8);
+    }
+    &:hover{
+      border-color: $dark;
+      color: $dark;
+    }
+  }
+}
