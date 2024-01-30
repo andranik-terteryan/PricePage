@@ -55,6 +55,22 @@ img {
   position: relative;
   overflow: hidden;
   transition: .2s;
+  &.with--icon{
+    span{
+      padding-right: 26px;
+      position: relative;
+      &::after{
+        content: "";
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.231033' y='0.719238' width='16' height='16' rx='8' fill='white' fill-opacity='0.6'/%3E%3Cpath d='M7.24153 6.74023L9.22053 8.71923L7.24153 10.6982' stroke='%23BC4749' stroke-width='0.989498' stroke-linecap='square'/%3E%3C/svg%3E");
+        @include absoluteCenter(vertical);
+        right: 0;
+        width: 16px;
+        height: 16px;
+        background-size: cover;
+        transition: .2s;
+      }
+    }
+  }
   span{
     position: relative;
     z-index: 5;
@@ -72,6 +88,12 @@ img {
     &::after{
       transition: 0.2s;
       width: 100%;
+    }
+    span{
+      &::after{
+        transition: .2s;
+        right: -5px;
+      }
     }
   }
   &.primary-button--red {
